@@ -23,18 +23,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'role:kepala_sekolah'])->group(function () {
     Route::get('/kepala/dashboard', function () {
-        return 'Dashboard Kepala Sekolah';
+        return view('kepala-sekolah.dashboard');
     });
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function () {
     Route::get('/owner/dashboard', function () {
-        return 'Dashboard Owner';
+        return view('owner.dashboard');
     });
 });
 
 Route::middleware(['auth', 'role:orang_tua'])->group(function () {
     Route::get('/orang-tua/dashboard', function () {
-        return 'Dashboard Orang Tua';
+        return view('orang-tua.dashboard');
     });
 });
