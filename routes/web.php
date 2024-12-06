@@ -17,7 +17,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 // Contoh route dengan middleware role
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', function () {
-        return 'Dashboard Admin';
+        return view('admin.dashboard');
     });
 });
 

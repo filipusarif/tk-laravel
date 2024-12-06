@@ -21,17 +21,20 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'role' => 'required|in:admin,kepala_sekolah,owner,orang_tua',
+            'role' => 'nullable|in:admin,kepala_sekolah,owner,orang_tua',
         ]);
-
+        $role = $request->role ?? 'orang_tua';
+        // dd($role);
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' => $role,
         ]);
 
-        return response()->json(['message' => 'Registrasi berhasil'], 201);
+        return redirect('/login');
+        
+        // return response()->json(['message' => 'Registrasi berhasil'], 201);
     }
 
     // Login pengguna
@@ -53,8 +56,24 @@ class AuthController extends Controller
             ]);
         }
 
+
         $request->session()->regenerate();
-        return response()->json(['message' => 'Login berhasil']);
+
+        // Redirect based on role
+        $user = Auth::user();
+        switch ($user->role) {
+            case 'admin':
+                return redirect('/admin/dashboard');
+            case 'kepala_sekolah':
+                return redirect('/kepala/dashboard');
+            case 'owner':
+                return redirect('/owner/dashboard');
+            case 'orang_tua':
+                return redirect('/orang-tua/dashboard');
+            default:
+                Auth::logout();
+                return redirect('/login')->withErrors(['role' => 'Role tidak dikenali.']);
+        }
     }
 
     // Logout pengguna
