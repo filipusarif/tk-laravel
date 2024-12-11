@@ -40,5 +40,19 @@
               </a>
             </li>
             @endif
+            @if (auth()->check() && auth()->user()->role === 'orang_tua')
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('pendaftaran') }}">
+                <span class="menu-title">Pendaftaran</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('informasi') }}">
+                <span class="menu-title">Informasi</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              </a>
+            </li>
+            @endif
           </ul>
         </nav>
