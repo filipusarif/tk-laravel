@@ -16,30 +16,29 @@
             </li>
             @if (auth()->check() && auth()->user()->role === 'admin')
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href=" {{ route('admin') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
-                <span class="menu-title">Forms</span>
+              <a class="nav-link" href=" {{ route('validation') }} ">
+                <span class="menu-title">Validation</span>
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
-                <span class="menu-title">Forms</span>
+              <a class="nav-link" href="{{ route('payments') }}">
+                <span class="menu-title">Payments</span>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('user') }}">
+                <span class="menu-title">User</span>
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               </a>
             </li>
             @endif
-
-            <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
-                <span class="menu-title">Forms</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              </a>
-            </li>
           </ul>
         </nav>

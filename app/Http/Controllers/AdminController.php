@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\Pembayaran;
+use App\Models\User;
+
 
 
 
@@ -78,4 +80,11 @@ class AdminController extends Controller
         return redirect()->route('validation')->with('success', 'Data siswa berhasil dihapus.');
     }
 
+
+    public function payments(){
+        $payments = Pembayaran::with('siswa')->get();
+        return view('admin.payment-detail', compact('payments'));
+    }
+
+    
 }

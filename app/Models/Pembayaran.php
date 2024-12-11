@@ -19,7 +19,7 @@ class Pembayaran extends Model
 
     public function siswa()
     {
-        return $this->belongsTo(Siswa::class, 'id');
+        return $this->belongsTo(Siswa::class, 'siswa_id', 'id');
     }
 
 }

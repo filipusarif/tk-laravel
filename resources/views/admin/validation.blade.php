@@ -30,48 +30,47 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-          <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th> id </th>
-                          <th> Nama </th>
-                          <th> Jenis Kelamin </th>
-                          <th> Tanggal Lahir </th>
-                          <th> Status Verifikasi </th>
-                          <th> Verifikasi </th>
-                          <th> Aksi </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      @forelse ($siswas as $siswa)
-                        <tr>
-                          <td class="py-1">
-                            {{ $loop->iteration }}
-                          </td>
-                          <td>{{ $siswa->nama }}</td>
-                          <td>{{ $siswa->jenis_kelamin }}</td>
-                          <td>{{ $siswa->tanggal_lahir }}</td>
-                          <td>{{ $siswa->status_verifikasi }}</td>
-                          <td>
-                            <a href="{{ route('validation.show', $siswa->id) }}" class="btn btn-gradient-info btn-icon-text"><i class="mdi mdi-table-edit"></i>Cek</a>
-                          </td>
-                          <td>
-                            <a href="{{ route('validation.edit', $siswa->id) }}" class="btn btn-gradient-info btn-icon-text"><i class="mdi mdi-table-edit"></i> Edit</a>
-                            <form method="POST" action="{{ route('validation.destroy', $siswa->id) }}" style="display:inline-block;" onsubmit="return confirm('Apakah Anda yakin?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-gradient-danger btn-icon-text"><i class="mdi mdi-delete"></i> Hapus</button>
-                            </form>
-                          </td>
-                        </tr>
-                        @empty
-                            <tr>
-                                <td colspan="7" class="text-center">Belum ada data siswa.</td>
-                            </tr>
-                        @endforelse
-                      </tbody>
-                    </table>
-            
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th> id </th>
+                  <th> Nama </th>
+                  <th> Jenis Kelamin </th>
+                  <th> Tanggal Lahir </th>
+                  <th> Status Verifikasi </th>
+                  <th> Verifikasi </th>
+                  <th> Aksi </th>
+                </tr>
+              </thead>
+              <tbody>
+              @forelse ($siswas as $siswa)
+                <tr>
+                  <td class="py-1">
+                    {{ $loop->iteration }}
+                  </td>
+                  <td>{{ $siswa->nama }}</td>
+                  <td>{{ $siswa->jenis_kelamin }}</td>
+                  <td>{{ $siswa->tanggal_lahir }}</td>
+                  <td>{{ $siswa->status_verifikasi }}</td>
+                  <td>
+                    <a href="{{ route('validation.show', $siswa->id) }}" class="btn btn-gradient-info btn-icon-text"><i class="mdi mdi-table-edit"></i>Cek</a>
+                  </td>
+                  <td>
+                    <a href="{{ route('validation.edit', $siswa->id) }}" class="btn btn-gradient-info btn-icon-text"><i class="mdi mdi-table-edit"></i> Edit</a>
+                    <form method="POST" action="{{ route('validation.destroy', $siswa->id) }}" style="display:inline-block;" onsubmit="return confirm('Apakah Anda yakin?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-gradient-danger btn-icon-text"><i class="mdi mdi-delete"></i> Hapus</button>
+                    </form>
+                  </td>
+                </tr>
+                @empty
+                    <tr>
+                        <td colspan="7" class="text-center">Belum ada data siswa.</td>
+                    </tr>
+                @endforelse
+              </tbody>
+            </table>    
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->

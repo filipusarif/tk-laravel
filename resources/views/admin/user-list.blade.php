@@ -29,36 +29,49 @@
         <x-sidebar></x-sidebar>  
         <!-- partial -->
         <div class="main-panel">
-         <table class="table table-striped">
+            
+        <div class="content-wrapper">
+        <a href="{{ route('user.add') }}" type="button" class="btn btn-gradient-success btn-lg btn-block">
+                <i class="mdi mdi-plus"></i> Add User
+            </a>
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th> id </th>
-                  <th> Nama Siswa </th>
-                  <th> Status Verifikasi </th>
-                  <th> Status Pembayaran </th>
-                  <th> Jumlah </th>
-                  <th> Tanggal Pembayaran </th>
+                  <th> Nama </th>
+                  <th> Email </th>
+                  <th> Role </th>
+                  <th> Dibuat Tanggal </th>
+                  <th> Aksi </th>
                 </tr>
               </thead>
               <tbody>
-              @forelse ($payments as $payment)
+              @forelse ($users as $user)
                 <tr>
                   <td class="py-1">
                     {{ $loop->iteration }}
                   </td>
-                  <td> {{ $payment->siswa->nama ?? 'Tidak ada data' }} </td>
-                  <td></td>
-                  <td>{{ $payment->status }} </td>
-                  <td>{{ $payment->jumlah }} </td>
-                  <td>{{ $payment->tanggal_bayar }} </td>
+                  <td>{{ $user->name }}</td>
+                  <td>{{ $user->email }}</td>
+                  <td>{{ $user->role }}</td>
+                  <td>{{ $user->created_at }}</td>
+                  <td>
+                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-gradient-info btn-icon-text"><i class="mdi mdi-table-edit"></i> Edit</a>
+                    <form method="POST" action="{{ route('user.destroy', $user->id) }}" style="display:inline-block;" onsubmit="return confirm('Apakah Anda yakin?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-gradient-danger btn-icon-text"><i class="mdi mdi-delete"></i> Hapus</button>
+                    </form>
+                  </td>
                 </tr>
                 @empty
                     <tr>
-                        <td colspan="7" class="text-center">Belum ada data siswa.</td>
+                        <td colspan="7" class="text-center">Belum ada data user.</td>
                     </tr>
                 @endforelse
               </tbody>
             </table>    
+          </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <x-footer></x-footer>

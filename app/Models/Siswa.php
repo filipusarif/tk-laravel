@@ -28,9 +28,9 @@ class Siswa extends Model
         'status_verifikasi',
     ];
 
-    public function pembayaran()
+    public function pembayarans()
     {
-        return $this->hasOne(Pembayaran::class);
+        return $this->hasMany(Pembayaran::class, 'siswa_id', 'id');
     }
 
     public function user()

@@ -32,6 +32,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::put('/admin/validation/{id}', [AdminController::class, 'update'])->name('validation.update');
     Route::delete('/admin/validation/{id}', [AdminController::class, 'destroy'])->name('validation.destroy');
 
+    Route::get('/admin/payments', [AdminController::class, 'payments'])->name('payments');
+    Route::get('/admin/user', [AuthController::class, 'user'])->name('user');
+    Route::post('/admin/user/add', [AuthController::class, 'registerallpost'])->name('user.post');
+    Route::get('/admin/user/add', [AuthController::class, 'registeruser'])->name('user.add');
+    Route::get('/admin/user/{id}', [AuthController::class, 'user_edit'])->name('user.edit');
+    Route::put('/admin/user/{id}', [AuthController::class, 'user_update'])->name('user.update');
+    Route::delete('/admin/user/{id}', [AuthController::class, 'user_destroy'])->name('user.destroy');
+
 });
 
 Route::middleware(['auth', 'role:kepala_sekolah'])->group(function () {
