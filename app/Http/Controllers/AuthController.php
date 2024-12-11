@@ -69,7 +69,7 @@ class AuthController extends Controller
             case 'owner':
                 return redirect('/owner/dashboard');
             case 'orang_tua':
-                return redirect('/orang-tua/dashboard');
+                return redirect('/pendaftaran');
             default:
                 Auth::logout();
                 return redirect('/login')->withErrors(['role' => 'Role tidak dikenali.']);
