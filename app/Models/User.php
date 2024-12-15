@@ -48,8 +48,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function siswas()
-    {
-        return $this->hasMany(Siswa::class, 'user_id');
-    }
+    // public function siswas()
+    // {
+    //     return $this->hasMany(Siswa::class, 'user_id');
+    // }siswa_id
 }

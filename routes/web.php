@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PaymentController;
+
 
 
 
@@ -18,6 +20,10 @@ Route::post('/login', [AuthController::class, 'loginPost']);
 Route::get('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::post('/daftar', [PendaftaranController::class, 'daftar']);
+Route::post('/daftar-ortu', [PendaftaranController::class, 'daftar_ortu']);
+Route::post('/daftar-berkas', [PendaftaranController::class, 'daftar_berkas']);
+
+
 
 // Contoh route dengan middleware role
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -56,7 +62,12 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
 
 Route::middleware(['auth', 'role:orang_tua'])->group(function () {
     Route::get('/pendaftaran', [PendaftaranController::class, 'pendaftaran'])->name('pendaftaran');
-    Route::get('/informasi', [PendaftaranController::class, 'informasi'])->name('informasi');
+    Route::get('/orang-tua', [PendaftaranController::class, 'orang_tua'])->name('orang-tua');
+    Route::get('/dokumen', [PendaftaranController::class, 'dokumen'])->name('dokumen');
+    Route::get('/informasi', [PaymentController::class, 'showPayment'])->name('informasi');
     Route::post('/confirmation/{id}/', [PendaftaranController::class, 'confirmation'])->name('confirmation');
-
+    // Route::get('/informasi', [PendaftaranController::class, 'informasi'])->name('informasi');
+    Route::post('/payment/create', [PaymentController::class, 'createPayment'])->name('payment.create');
 });
+
+Route::post('/payment/callback', [PaymentController::class, 'handlePaymentCallback'])->name('payment.callback');

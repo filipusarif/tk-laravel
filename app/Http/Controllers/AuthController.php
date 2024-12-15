@@ -21,7 +21,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'role' => 'nullable|in:admin,kepala_sekolah,owner,orang_tua',
+            'role' => 'nullable|in:admin,kepala_sekolah,orang_tua',
         ]);
         $role = $request->role ?? 'orang_tua';
         // dd($role);

@@ -48,7 +48,7 @@
                   <td class="py-1">
                     {{ $loop->iteration }}
                   </td>
-                  <td>{{ $siswa->nama }}</td>
+                  <td>{{ $siswa->nama_lengkap}}</td>
                   <td>{{ $siswa->jenis_kelamin }}</td>
                   <td>{{ $siswa->tanggal_lahir }}</td>
                   <td>{{ $siswa->status_verifikasi }}</td>

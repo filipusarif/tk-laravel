@@ -1,4 +1,4 @@
-<x-base>
+<x-base-user>
     <x-slot:title>Register</x-slot:title>
 
     <section class="bg-gray-50 light:bg-gray-900">
@@ -46,4 +46,4 @@
         </div>
     </div>
     </section>
-</x-base>
+</x-base-user>

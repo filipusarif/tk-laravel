@@ -1,4 +1,4 @@
-<x-base>
+<x-base-user>
     <x-slot:title>PPDB TK</x-slot:title>
    
     <nav class="bg-white border-slate-200 dark:bg-white  fixed w-full z-50">
@@ -39,7 +39,7 @@
     <p class="mt-4 text-lg text-gray-700">TK Annur - Tahun Ajaran 2025/2026</p>
     <p class="mt-2 text-gray-600">Daftarkan anak Anda di TK Annur untuk pengalaman belajar yang menyenangkan dan penuh keceriaan.</p>
     <div class="mt-6">
-      <a href="/register" class="bg-orange-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-orange-600">
+      <a href="/login" class="bg-orange-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-orange-600">
         Daftar Sekarang
       </a>
     </div>
@@ -132,4 +132,4 @@
   <footer class="bg-orange-500 text-white py-6 text-center">
     <p>&copy; 2024 TK Annur. Semua Hak Dilindungi.</p>
   </footer>
-</x-base>
+</x-base-user>

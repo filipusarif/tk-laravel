@@ -14,12 +14,13 @@ class Pembayaran extends Model
         'siswa_id',
         'jumlah',
         'status',
+        'kategori',
         'tanggal_bayar',
     ];
 
     public function siswa()
     {
-        return $this->belongsTo(Siswa::class, 'siswa_id', 'id');
+        return $this->belongsTo(Siswa::class, 'siswa_id');
     }
 
 }

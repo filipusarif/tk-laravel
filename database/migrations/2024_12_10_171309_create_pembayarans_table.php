@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('siswa_id')->constrained('siswas')->onDelete('cascade');
+            $table->enum('kategori', ['spp', 'uang_pangkal', 'seragam','buku','pendaftaran'])->default('spp');
             $table->decimal('jumlah', 10, 2);
+            $table->string('bukti_pembayaran')->nullable();
             $table->enum('status', ['pending', 'paid', 'failed'])->default('pending');
             $table->date('tanggal_bayar')->nullable();
             $table->timestamps();

@@ -35,10 +35,34 @@ class AdminController extends Controller
         // Masukkan data ke tabel pembayaran
         Pembayaran::create([
             'siswa_id' => $siswa->id,
+            'kategori'=> 'pendaftaran',
+            'jumlah' => 50000, // Contoh jumlah pembayaran
+            'status' => 'pending',
+            'tanggal_bayar' => null, // Akan diisi saat pembayaran selesai
+        ]);
+
+        Pembayaran::create([
+            'siswa_id' => $siswa->id,
+            'kategori'=> 'spp',
             'jumlah' => 500000, // Contoh jumlah pembayaran
             'status' => 'pending',
             'tanggal_bayar' => null, // Akan diisi saat pembayaran selesai
         ]);
+        Pembayaran::create([
+            'siswa_id' => $siswa->id,
+            'kategori'=> 'uang_pangkal',
+            'jumlah' => 2500000, // Contoh jumlah pembayaran
+            'status' => 'pending',
+            'tanggal_bayar' => null, // Akan diisi saat pembayaran selesai
+        ]);
+        Pembayaran::create([
+            'siswa_id' => $siswa->id,
+            'kategori'=> 'seragam',
+            'jumlah' => 900000, // Contoh jumlah pembayaran
+            'status' => 'pending',
+            'tanggal_bayar' => null, // Akan diisi saat pembayaran selesai
+        ]);
+
 
         return redirect()->route('validation')->with('success', 'Siswa berhasil diverifikasi dan pembayaran dibuat.');
     }
