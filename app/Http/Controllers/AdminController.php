@@ -10,6 +10,7 @@ use App\Models\User;
 
 
 
+
 class AdminController extends Controller
 {
     public function admin(){
@@ -110,5 +111,7 @@ class AdminController extends Controller
         return view('admin.payment-detail', compact('payments'));
     }
 
+
+    // Prestasi
     
 }

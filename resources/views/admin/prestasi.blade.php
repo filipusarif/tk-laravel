@@ -29,36 +29,52 @@
         <x-sidebar></x-sidebar>  
         <!-- partial -->
         <div class="main-panel">
-         <table class="table table-striped">
+            
+        <div class="content-wrapper">
+        <a href="{{ route('prestasi.add') }}" type="button" class="btn btn-gradient-success btn-lg btn-block">
+                <i class="mdi mdi-plus"></i> Add prestasi
+            </a>
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th> id </th>
-                  <th> Nama Siswa </th>
-                  <th> Kategori </th>
-                  <th> Status Pembayaran </th>
-                  <th> Jumlah </th>
-                  <th> Tanggal Pembayaran </th>
+                  <th> Judul </th>
+                  <th> Deskripsi </th>
+                  <th> Gambar </th>
+                  <th> Tanggal </th>
+                  <th> Aksi </th>
                 </tr>
               </thead>
               <tbody>
-              @forelse ($payments as $payment)
+              @forelse ($prestasis as $prestasi)
                 <tr>
                   <td class="py-1">
                     {{ $loop->iteration }}
                   </td>
-                  <td> {{ $payment->siswa->nama_lengkap ?? 'Tidak ada data' }} </td>
-                  <td>{{ $payment->kategori }} </td>
-                  <td>{{ $payment->status }}</td>
-                  <td>{{ $payment->jumlah }} </td>
-                  <td>{{ $payment->tanggal_bayar ?? "belum terbayar" }} </td>
+                  <td>{{ $prestasi->judul }}</td>
+                  <td>{{ $prestasi->deskripsi }}</td>
+                  <td>
+                    <img src="{{ asset($prestasi->gambar) }}" alt="Foto">
+                  </td>
+
+                  <td>{{ $prestasi->created_at }}</td>
+                  <td>
+                    <a href="{{ route('prestasi.edit', $prestasi->id) }}" class="btn btn-gradient-info btn-icon-text"><i class="mdi mdi-table-edit"></i> Edit</a>
+                    <form method="POST" action="{{ route('prestasi.destroy', $prestasi->id) }}" style="display:inline-block;" onsubmit="return confirm('Apakah Anda yakin?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-gradient-danger btn-icon-text"><i class="mdi mdi-delete"></i> Hapus</button>
+                    </form>
+                  </td>
                 </tr>
                 @empty
                     <tr>
-                        <td colspan="7" class="text-center">Belum ada data siswa.</td>
+                        <td colspan="7" class="text-center">Belum ada data prestasi.</td>
                     </tr>
                 @endforelse
               </tbody>
             </table>    
+          </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <x-footer></x-footer>

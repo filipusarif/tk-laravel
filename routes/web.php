@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PrestasiController;
+
 
 
 
@@ -22,6 +24,8 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::post('/daftar', [PendaftaranController::class, 'daftar']);
 Route::post('/daftar-ortu', [PendaftaranController::class, 'daftar_ortu']);
 Route::post('/daftar-berkas', [PendaftaranController::class, 'daftar_berkas']);
+Route::post('/daftar-admin', [PendaftaranController::class, 'daftar_admin']);
+
 
 
 
@@ -45,6 +49,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/user/{id}', [AuthController::class, 'user_edit'])->name('user.edit');
     Route::put('/admin/user/{id}', [AuthController::class, 'user_update'])->name('user.update');
     Route::delete('/admin/user/{id}', [AuthController::class, 'user_destroy'])->name('user.destroy');
+
+    // prestasi
+    Route::get('/admin/prestasi', [PrestasiController::class, 'prestasi'])->name('prestasi');
+    Route::post('/admin/prestasi/add', [PrestasiController::class, 'registerprestasipost'])->name('prestasi.post');
+    Route::get('/admin/prestasi/add', [PrestasiController::class, 'registerprestasi'])->name('prestasi.add');
+    Route::get('/admin/prestasi/{id}', [PrestasiController::class, 'prestasi_edit'])->name('prestasi.edit');
+    Route::put('/admin/prestasi/{id}', [PrestasiController::class, 'prestasi_update'])->name('prestasi.update');
+    Route::delete('/admin/prestasi/{id}', [PrestasiController::class, 'prestasi_destroy'])->name('prestasi.destroy');
+
+    Route::get('/pendaftaran', [PendaftaranController::class, 'pendaftaran_admin'])->name('pendaftaran.admin');
+
 
 });
 

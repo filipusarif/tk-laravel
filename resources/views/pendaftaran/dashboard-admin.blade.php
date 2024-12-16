@@ -19,11 +19,22 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Pendaftaran Siswa</h4>
-                    <form class="form-sample" method="POST" action="/daftar">
+                    <form class="form-sample" method="POST" action="/daftar-admin">
                       @csrf
                       <p class="card-description"> Informasi Siswa </p>
                       <div class="row">
-
+                      <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label"> User </label>
+                            <div class="col-sm-9">
+                              <select name="user" class="form-control">
+                              @foreach ( $users as $user )
+                                <option value="{{ $user->id }}" > {{ $user->name }} </option>
+                              @endforeach
+                              </select>
+                            </div>
+                          </div>
+                        </div>
                         <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Nama</label>
