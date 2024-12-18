@@ -23,7 +23,7 @@
                       @csrf
                       <p class="card-description"> Informasi Siswa </p>
                       <div class="row">
-                      <div class="col-md-6">
+                        <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label"> User </label>
                             <div class="col-sm-9">

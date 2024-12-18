@@ -1,89 +1,342 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
-  </head>
-  <body>
-    <div class="container-scroller">
+<x-base>
+<div class="content-wrapper">
+            <!-- <p>{{ $siswa->nama }}</p>
+            <p>{{ $siswa->tempat_lahir }}</p>
+            <p>{{ $siswa->tanggal_lahir }}</p>
+            <p>{{ $siswa->jenis_kelamin }}</p>
+            <p>{{ $siswa->alamat }}</p>
+            <p>{{ $siswa->no_kk }}</p>
+            <p>{{ $siswa->nama_ayah }}</p>
+            <p>{{ $siswa->pekerjaan_ayah }}</p>
+            <p>{{ $siswa->no_telp_ayah }}</p>
+            <p>{{ $siswa->nama_ibu }}</p>
+            <p>{{ $siswa->pekerjaan_ibu }}</p>
+            <p>{{ $siswa->no_telp_ibu }}</p>
+            <p>{{ $siswa->file_akta_kelahiran }}</p>
+            <p>{{ $siswa->file_kk }}</p>
+            <p>{{ $siswa->file_foto }}</p>
+            <p>{{ $siswa->status_verifikasi }}</p> -->
 
-      <!-- partial:partials/_navbar.html -->
-      <x-navbar></x-navbar>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        <x-sidebar></x-sidebar>  
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-          <p>{{ $siswa->nama }}</p>
-          <p>{{ $siswa->tempat_lahir }}</p>
-          <p>{{ $siswa->tanggal_lahir }}</p>
-          <p>{{ $siswa->jenis_kelamin }}</p>
-          <p>{{ $siswa->alamat }}</p>
-          <p>{{ $siswa->no_kk }}</p>
-          <p>{{ $siswa->nama_ayah }}</p>
-          <p>{{ $siswa->pekerjaan_ayah }}</p>
-          <p>{{ $siswa->no_telp_ayah }}</p>
-          <p>{{ $siswa->nama_ibu }}</p>
-          <p>{{ $siswa->pekerjaan_ibu }}</p>
-          <p>{{ $siswa->no_telp_ibu }}</p>
-          <p>{{ $siswa->file_akta_kelahiran }}</p>
-          <p>{{ $siswa->file_kk }}</p>
-          <p>{{ $siswa->file_foto }}</p>
-          <p>{{ $siswa->status_verifikasi }}</p>
+<div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Validasi Siswa</h4>
+                    <!-- <form class="form-sample" method="POST" action="/daftar-admin"  enctype="multipart/form-data"> -->
+    
+          <p class="card-description"> Informasi Siswa </p>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Nama</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="nama_lengkap" class="form-control" value="{{ old('nama_lengkap', $siswa->nama_lengkap ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Nama Panggilan</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="nama_panggilan" class="form-control" value="{{ old('nama_panggilan', $siswa->nama_panggilan ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
+                <div class="col-sm-9">
+                  <select name="jenis_kelamin" class="form-control" disabled>
+                    <option value="L" {{ old('jenis_kelamin', $siswa->jenis_kelamin ?? '') == 'L' ? 'selected' : '' }}>Laki - Laki</option>
+                    <option value="P" {{ old('jenis_kelamin', $siswa->jenis_kelamin ?? '') == 'P' ? 'selected' : '' }}>Perempuan</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">NIK</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="nik" class="form-control" value="{{ old('nik', $siswa->nik ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">No KK</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="kk" class="form-control" value="{{ old('kk', $siswa->kk ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">No Akta</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="akte" class="form-control" value="{{ old('akte', $siswa->akte ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Tempat Lahir</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="tempat_lahir" class="form-control" value="{{ old('tempat_lahir', $siswa->tempat_lahir ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                <div class="col-sm-9">
+                  <input readonly type="date" class="form-control" name="tanggal_lahir" placeholder="dd/mm/yyyy" value="{{ old('tanggal_lahir', $siswa->tanggal_lahir ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Tinggi Badan</label>
+                <div class="col-sm-9">
+                  <input readonly type="number" name="tinggi" class="form-control" value="{{ old('tinggi', $siswa->tinggi ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Berat Badan</label>
+                <div class="col-sm-9">
+                  <input readonly type="number" name="berat" class="form-control" value="{{ old('berat', $siswa->berat ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Agama</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="agama" class="form-control" value="{{ old('agama', $siswa->agama ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Kewarganegaraan</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="kewarganegaraan" class="form-control" value="{{ old('kewarganegaraan', $siswa->kewarganegaraan ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Jumlah Saudara</label>
+                <div class="col-sm-9">
+                  <input readonly type="number" name="jumlah_saudara" class="form-control" value="{{ old('jumlah_saudara', $siswa->jumlah_saudara ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Berkebutuhan Khusus</label>
+                <div class="col-sm-9">
+                  <select name="berkebutuhan_khusus" class="form-control" disabled>
+                    <option value="Y" {{ old('berkebutuhan_khusus', $siswa->berkebutuhan_khusus ?? '') == 'Y' ? 'selected' : '' }}>Ya</option>
+                    <option value="T" {{ old('berkebutuhan_khusus', $siswa->berkebutuhan_khusus ?? '') == 'T' ? 'selected' : '' }}>Tidak</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label "> Alamat</label>
+                <div class="col-sm-12">
+                  <input readonly type="text" name="alamat" class="form-control" value="{{ old('alamat', $siswa->alamat ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Jarak ke Sekolah</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="jarak" class="form-control" value="{{ old('jarak', $siswa->jarak ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Waktu Perjalanan</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="waktu" class="form-control" value="{{ old('waktu', $siswa->waktu ?? '') }}"/>
+                </div>
+              </div>
+            </div>
 
-          <form method="POST" action="{{ route('validation.verify', $siswa->id) }}">
-              @csrf
-              <button type="submit" class="btn btn-success">Verifikasi</button>
-          </form>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Nama Ayah</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="nama_ayah" class="form-control" value="{{ old('nama_ayah', $siswa->nama_ayah ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">NIK Ayah</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="nik_ayah" class="form-control" value="{{ old('nik_ayah', $siswa->nik_ayah ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Pendidikan Ayah</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="pendidikan_ayah" class="form-control" value="{{ old('pendidikan_ayah', $siswa->pendidikan_ayah ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Pekerjaan Ayah</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="pekerjaan_ayah" class="form-control" value="{{ old('pekerjaan_ayah', $siswa->pekerjaan_ayah ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Email Ayah</label>
+                <div class="col-sm-9">
+                  <input readonly type="email" name="email_ayah" class="form-control" value="{{ old('email_ayah', $siswa->email_ayah ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Tempat Lahir</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="tempat_lahir_ayah" class="form-control" value="{{ old('tempat_lahir_ayah', $siswa->tempat_lahir_ayah ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                <div class="col-sm-9">
+                  <input readonly type="date" class="form-control" name="tanggal_lahir_ayah" placeholder="dd/mm/yyyy" value="{{ old('tanggal_lahir_ayah', $siswa->tanggal_lahir_ayah ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">No Telp Ayah</label>
+                <div class="col-sm-9">
+                  <input readonly type="number" name="no_telp_ayah" class="form-control" value="{{ old('no_telp_ayah', $siswa->no_telp_ayah ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Penghasilan Ayah</label>
+                <div class="col-sm-9">
+                  <select disabled name="penghasilan_ayah" class="form-control">
+                    <option value="1" {{ old('penghasilan_ayah', $siswa->penghasilan_ayah ?? '') == '1' ? 'selected' : '' }}> Kurang dari 1</option>
+                    <option value="2" {{ old('penghasilan_ayah', $siswa->penghasilan_ayah ?? '') == '2' ? 'selected' : '' }}>Kurang dari 2</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-          <form method="POST" action="{{ route('validation.reject', $siswa->id) }}">
-              @csrf
-              <button type="submit" class="btn btn-danger">Tolak Verifikasi</button>
-          </form>
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Nama ibu</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="nama_ibu" class="form-control" value="{{ old('nama_ibu', $siswa->nama_ibu ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">NIK ibu</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="nik_ibu" class="form-control" value="{{ old('nik_ibu', $siswa->nik_ibu ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Pendidikan ibu</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="pendidikan_ibu" class="form-control" value="{{ old('pendidikan_ibu', $siswa->pendidikan_ibu ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Pekerjaan ibu</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="pekerjaan_ibu" class="form-control" value="{{ old('pekerjaan_ibu', $siswa->pekerjaan_ibu ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Email ibu</label>
+                <div class="col-sm-9">
+                  <input readonly type="email" name="email_ibu" class="form-control" value="{{ old('email_ibu', $siswa->email_ibu ?? '') }}" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Tempat Lahir</label>
+                <div class="col-sm-9">
+                  <input readonly type="text" name="tempat_lahir_ibu" class="form-control" value="{{ old('tempat_lahir_ibu', $siswa->tempat_lahir_ibu ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
+                <div class="col-sm-9">
+                  <input readonly type="date" class="form-control" name="tanggal_lahir_ibu" placeholder="dd/mm/yyyy" value="{{ old('tanggal_lahir_ibu', $siswa->tanggal_lahir_ibu ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">No Telp ibu</label>
+                <div class="col-sm-9">
+                  <input readonly type="number" name="no_telp_ibu" class="form-control" value="{{ old('no_telp_ibu', $siswa->no_telp_ibu ?? '') }}"/>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Penghasilan ibu</label>
+                <div class="col-sm-9">
+                  <select disabled name="penghasilan_ibu" class="form-control">
+                    <option value="1" {{ old('penghasilan_ibu', $siswa->penghasilan_ibu ?? '') == '1' ? 'selected' : '' }}> Kurang dari 1</option>
+                    <option value="2" {{ old('penghasilan_ibu', $siswa->penghasilan_ibu ?? '') == '2' ? 'selected' : '' }}>Kurang dari 2</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-          <a href="{{ route('validation') }}" class="btn btn-secondary">Kembali</a>
+            <form method="POST" action="{{ route('validation.verify', $siswa->id) }}">
+                @csrf
+                <button type="submit" class="btn btn-success">Verifikasi</button>
+            </form>
 
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <x-footer></x-footer>
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="/assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="/assets/js/jquery.cookie.js" type="text/javascript"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="/assets/js/off-canvas.js"></script>
-    <script src="/assets/js/hoverable-collapse.js"></script>
-    <script src="/assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="/assets/js/dashboard.js"></script>
-    <script src="/assets/js/todolist.js"></script>
-    <!-- End custom js for this page -->
-  </body>
-</html>
+            <form method="POST" action="{{ route('validation.reject', $siswa->id) }}">
+                @csrf
+                <button type="submit" class="btn btn-danger">Tolak Verifikasi</button>
+            </form>
+
+            <a href="{{ route('validation') }}" class="btn btn-secondary">Kembali</a>
+</div>
+                  </div>
+                </div>
+              </div>
+
+</x-base>

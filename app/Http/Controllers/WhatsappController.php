@@ -8,12 +8,7 @@
 
     class WhatsappController extends Controller
     {
-     // Method to return the WhatsApp view
-     public function index()
-     {
-      return view('whatsapp');
-     }
-     // Method to handle form submission and send a WhatsApp message via Twilio
+
      function store(Request $request)
      {
       $twilioSid = env('TWILIO_SID');
