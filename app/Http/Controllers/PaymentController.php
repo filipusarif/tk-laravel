@@ -28,7 +28,7 @@ class PaymentController extends Controller
                     ->first();
     
         if (!$siswas) {
-            return redirect()->back()->with('error', 'Data siswa tidak ditemukan.');
+            return view('pendaftaran.informasi-not');
         }
     
         // Fetch pending payments for the student

@@ -66,8 +66,6 @@ class AuthController extends Controller
                 return redirect('/admin/dashboard');
             case 'kepala_sekolah':
                 return redirect('/kepala/dashboard');
-            case 'owner':
-                return redirect('/owner/dashboard');
             case 'orang_tua':
                 return redirect('/pendaftaran');
             default:

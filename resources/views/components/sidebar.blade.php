@@ -12,10 +12,10 @@
                   @if ( auth()->user()->role == 'admin')
                   <span class="text-secondary text-small"> Admin </span>
                     
-                  @elseif ( auth()->user()->name == 'kepala_sekolah')
+                  @elseif ( auth()->user()->role == 'kepala_sekolah')
                   <span class="text-secondary text-small"> Kepala Sekolah </span>
 
-                  @elseif ( auth()->user()->name == 'orang_tua')
+                  @elseif ( auth()->user()->role == 'orang_tua')
                   <span class="text-secondary text-small"> Orang Tua </span>
                     
                   @endif
@@ -52,6 +52,14 @@
               <a class="nav-link" href="{{ route('prestasi') }}">
                 <span class="menu-title">Prestasi</span>
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              </a>
+            </li>
+            @endif
+            @if (auth()->check() && auth()->user()->role === 'kepala_sekolah')
+            <li class="nav-item">
+              <a class="nav-link" href=" {{ route('admin.kepala') }}">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
             @endif

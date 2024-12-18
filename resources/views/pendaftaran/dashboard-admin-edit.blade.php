@@ -4,12 +4,12 @@
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
                   <i class="mdi mdi-home"></i>
-                </span> Pendaftaran Siswa
+                </span> Edit Pendaftaran Siswa
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                    <span></span>Ringkasan <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                   </li>
                 </ul>
               </nav>
@@ -18,10 +18,10 @@
             <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Pendaftaran Siswa</h4>
+                    <h4 class="card-title">Edit Pendaftaran Siswa</h4>
                     <form class="form-sample" method="POST" action="/daftar-admin-edit"  enctype="multipart/form-data">
                       @csrf
-                      <p class="card-description"> Informasi Siswa </p>
+                      <p class="card-description"> Edit Informasi Berkas Siswa </p>
                       <div class="row">
                       <div class="col-md-6">
                           <div class="form-group row">
@@ -351,7 +351,7 @@
                         <input type="file" name="file_imunisasi" id="file_imunisasi" >
 
                       <div class="d-flex gap-3 justify-content-between">
-                        <button type="submit" class="btn btn-gradient-info btn-fw col-md-3">Batal</button>
+                        <button class="btn btn-gradient-danger btn-fw col-md-3">Batal</button>
                         <button type="submit" class="btn btn-gradient-info btn-fw col-md-3">Kirim</button>
                       </div>
                      

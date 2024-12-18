@@ -16,14 +16,25 @@
             <p>{{ $siswa->file_kk }}</p>
             <p>{{ $siswa->file_foto }}</p>
             <p>{{ $siswa->status_verifikasi }}</p> -->
-
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Validasi Siswa
+              </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                    <span></span>Ringkasan <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                  </li>
+                </ul>
+              </nav>
+            </div>
 <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Validasi Siswa</h4>
-                    <!-- <form class="form-sample" method="POST" action="/daftar-admin"  enctype="multipart/form-data"> -->
-    
-          <p class="card-description"> Informasi Siswa </p>
+        <h4 class="card-title">Validasi Data Siswa</h4>
+          <p class="card-description"> Informasi Data Diri Siswa </p>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group row">
@@ -323,17 +334,34 @@
               </div>
             </div>
 
-            <form method="POST" action="{{ route('validation.verify', $siswa->id) }}">
-                @csrf
-                <button type="submit" class="btn btn-success">Verifikasi</button>
-            </form>
+            <p>File Akta Kelahiran  
+                <a href="{{ asset($siswa->file_akta_kelahiran) }}" target="_blank">Lihat Akte</a>
+            </p>
+            <p>File Kartu Keluarga  
+                <a href="{{ asset($siswa->file_kk) }}" target="_blank">Lihat KK</a>
+            </p>
+            <p>File Foto 
+                <a href="{{ asset($siswa->file_foto) }}" target="_blank">Lihat Foto</a>
+            </p>
+            <p>File Imunisasi 
+                <a href="{{ asset($siswa->file_imunisasi) }}" target="_blank">Lihat Imunisasi</a>
+            </p>
 
-            <form method="POST" action="{{ route('validation.reject', $siswa->id) }}">
-                @csrf
-                <button type="submit" class="btn btn-danger">Tolak Verifikasi</button>
-            </form>
+            <div class="d-flex justify-content-between align-items-center">
+              <a href="{{ route('validation') }}" class="btn btn-secondary">Kembali</a>
+              <div class="d-flex justify-content-between gap-3 align-items-center">
+                <form method="POST" action="{{ route('validation.verify', $siswa->id) }}">
+                    @csrf
+                    <button type="submit" class="btn btn-success">Verifikasi</button>
+                </form>
+    
+                <form method="POST" action="{{ route('validation.reject', $siswa->id) }}">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Tolak Verifikasi</button>
+                </form>
+              </div>
+            </div>
 
-            <a href="{{ route('validation') }}" class="btn btn-secondary">Kembali</a>
 </div>
                   </div>
                 </div>

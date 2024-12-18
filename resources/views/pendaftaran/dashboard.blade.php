@@ -9,7 +9,7 @@
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                    <span></span>Ringkasan <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                   </li>
                 </ul>
               </nav>
@@ -167,8 +167,8 @@
                           </div>
                         </div>
                       <div class="d-flex gap-3 justify-content-between">
-                        <button type="submit" class="btn btn-gradient-info btn-fw col-md-3">Batal</button>
-                        <button type="submit" class="btn btn-gradient-info btn-fw col-md-3">Kirim</button>
+                        <!-- <button type="submit" class="btn btn-gradient-info btn-fw col-md-3">Batal</button> -->
+                        <button type="submit" class="btn btn-gradient-info btn-fw col-md-3">Lanjut</button>
                       </div>
                      
                     </form>

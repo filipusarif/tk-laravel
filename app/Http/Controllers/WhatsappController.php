@@ -35,8 +35,8 @@
             ->create($to,$mes);
         }
         
-       return "Message sent successfully! SID: " . $message->sid;
-        // return redirect()->route('payments')->with('success', 'Berhasil Mengirim Notifikasi.');
+    //    return "Message sent successfully! SID: " . $message->sid;
+        return redirect()->route('payments')->with('success', 'Berhasil Mengirim Notifikasi.');
       } catch (Exception $e) {
        return "Error sending message: " . $e->getMessage();
       }

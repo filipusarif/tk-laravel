@@ -57,20 +57,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::put('/admin/prestasi/{id}', [PrestasiController::class, 'prestasi_update'])->name('prestasi.update');
     Route::delete('/admin/prestasi/{id}', [PrestasiController::class, 'prestasi_destroy'])->name('prestasi.destroy');
     
-    Route::get('/pendaftaran-admin', [PendaftaranController::class, 'pendaftaran_admin'])->name('pendaftaran-admin');
-    Route::get('/Pendaftaran-admin/edit/{id}', [PendaftaranController::class, 'pendaftaran_admin_edit'])->name('validation.edit');
+    Route::get('/admin/pendaftaran', [PendaftaranController::class, 'pendaftaran_admin'])->name('pendaftaran.admin');
+    Route::get('/admin/validation/edit/{id}', [PendaftaranController::class, 'pendaftaran_admin_edit'])->name('validation.edit');
 });
 
 Route::middleware(['auth', 'role:kepala_sekolah'])->group(function () {
-    Route::get('/kepala/dashboard', function () {
-        return view('kepala-sekolah.dashboard');
-    });
-});
-
-Route::middleware(['auth', 'role:owner'])->group(function () {
-    Route::get('/owner/dashboard', function () {
-        return view('owner.dashboard');
-    });
+    Route::get('/kepala/dashboard', [AdminController::class, 'admin'])->name('admin.kepala');
 });
 
 Route::middleware(['auth', 'role:orang_tua'])->group(function () {

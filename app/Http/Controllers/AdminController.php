@@ -24,16 +24,16 @@ class AdminController extends Controller
         //     $query->where('status', 'paid');
         // })->with('pembayaran')->get();
 
-        // $siswaSudahMembayar = Pembayaran::with('siswa')->where('status', 'paid')->get();
-        // $siswaBelumMembayar = Pembayaran::with('siswa')->where('status', 'pending')->get();
+        $siswaSudahMembayar = Pembayaran::with('siswa')->where('status', 'paid')->get();
+        $siswaBelumMembayar = Pembayaran::with('siswa')->where('status', 'pending')->get();
 
         // Paginate 10 items per page
-        $siswaSudahMembayar = Pembayaran::with('siswa')
-        ->where('status', 'paid')
-        ->paginate(2);  // Adjust the pagination per page
-$siswaBelumMembayar = Pembayaran::with('siswa')
-        ->where('status', 'pending')
-        ->paginate(2);
+//         $siswaSudahMembayar = Pembayaran::with('siswa')
+//         ->where('status', 'paid')
+//         ->paginate(2);  // Adjust the pagination per page
+// $siswaBelumMembayar = Pembayaran::with('siswa')
+//         ->where('status', 'pending')
+//         ->paginate(2);
 
         // $siswaBelumMembayar = Siswa::whereDoesntHave('pembayaran')->orWhereHas('pembayaran', function ($query) {
         //     $query->where('status', 'pending');
