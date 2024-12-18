@@ -14,7 +14,36 @@ use App\Models\User;
 class AdminController extends Controller
 {
     public function admin(){
-        return view('admin.dashboard');
+        $jumlahPendaftar = Siswa::count();
+        $totalUangDibayar = Pembayaran::where('status', 'paid')->sum('jumlah');
+        $jumlahSudahMembayar = Pembayaran::where('status', 'paid')->distinct('siswa_id')->count();
+        $jumlahBelumMembayar = Pembayaran::where('status', 'Pending')->distinct()->count();
+
+        // $jumlahBelumMembayar = Siswa::doesntHave('pembayaran')->distinct('id')->count();
+        // $siswaSudahMembayar = Siswa::whereHas('pembayaran', function ($query) {
+        //     $query->where('status', 'paid');
+        // })->with('pembayaran')->get();
+
+        // $siswaSudahMembayar = Pembayaran::with('siswa')->where('status', 'paid')->get();
+        // $siswaBelumMembayar = Pembayaran::with('siswa')->where('status', 'pending')->get();
+
+        // Paginate 10 items per page
+        $siswaSudahMembayar = Pembayaran::with('siswa')
+        ->where('status', 'paid')
+        ->paginate(2);  // Adjust the pagination per page
+$siswaBelumMembayar = Pembayaran::with('siswa')
+        ->where('status', 'pending')
+        ->paginate(2);
+
+        // $siswaBelumMembayar = Siswa::whereDoesntHave('pembayaran')->orWhereHas('pembayaran', function ($query) {
+        //     $query->where('status', 'pending');
+        // })->with('pembayaran')->get();
+        return view('admin.dashboard', compact('jumlahPendaftar',
+            'totalUangDibayar',
+            'jumlahSudahMembayar',
+            'jumlahBelumMembayar',
+            'siswaSudahMembayar',
+            'siswaBelumMembayar'));
     }
 
     public function validation(){

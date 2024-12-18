@@ -244,18 +244,16 @@ class PendaftaranController extends Controller
     {
         
         $siswa = Siswa::where('user_id', auth()->id())->first();
-        return view('pendaftaran.dashboard', compact('siswa'));
+        $users = User::all();
+        return view('pendaftaran.dashboard-admin', compact('siswa','users'));
     }
 
     public function daftar_admin(Request $request)
     {    
-
-        // Lokasi folder penyimpanan
         $destinationPath = public_path('berkas');
-        // Inisialisasi nama file untuk penyimpanan di database
+        
         $aktaKelahiranName = $kkName = $fotoName = $imunisasiName = null;
 
-            // Simpan file jika ada
         if ($request->hasFile('file_akta_kelahiran')) {
             $aktaKelahiranName = time() . '_akta.' . $request->file('file_akta_kelahiran')->getClientOriginalExtension();
             $request->file('file_akta_kelahiran')->move($destinationPath, $aktaKelahiranName);
@@ -276,14 +274,98 @@ class PendaftaranController extends Controller
             $request->file('file_imunisasi')->move($destinationPath, $imunisasiName);
         }
 
-        $berkas = Siswa::where('user_id', auth()->id())->first();
-
-    
-
+        $user_id = (int) $request->user;
+        // dd($user_id);
         Siswa::updateOrCreate(
-            ['user_id' => $request->user], // Kondisi untuk mencari data berdasarkan user_id
-            [ // Data yang akan dibuat atau diperbarui
-                'user_id' => $request->user,
+            ['user_id' => $user_id], 
+            [ 
+                'user_id' => $user_id,
+                'nama_lengkap' => $request->nama_lengkap,
+                'nama_panggilan' => $request->nama_panggilan,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'nik' => $request->nik,
+                'kk' => $request->kk,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'akte' => $request->akte,
+                'tinggi' => $request->tinggi,
+                'berat' => $request->berat,
+                'agama' => $request->agama,
+                'kewarganegaraan' => $request->kewarganegaraan,
+                'jumlah_saudara' => $request->jumlah_saudara,
+                'berkebutuhan_khusus' => $request->berkebutuhan_khusus,
+                'jarak' => $request->jarak,
+                'alamat' => $request->alamat,
+                'waktu' => $request->waktu,
+                'nama_ayah' => $request->nama_ayah,
+                'nik_ayah' => $request->nik_ayah,
+                'tempat_lahir_ayah' => $request->tempat_lahir_ayah,
+                'tanggal_lahir_ayah' => $request->tanggal_lahir_ayah,
+                'pendidikan_ayah' => $request->pendidikan_ayah,
+                'pekerjaan_ayah' => $request->pekerjaan_ayah,
+                'email_ayah' => $request->email_ayah,
+                'no_telp_ayah' => $request->no_telp_ayah,
+                'penghasilan_ayah' => $request->penghasilan_ayah,
+                'nama_ibu' => $request->nama_ibu,
+                'nik_ibu' => $request->nik_ibu,
+                'tempat_lahir_ibu' => $request->tempat_lahir_ibu,
+                'tanggal_lahir_ibu' => $request->tanggal_lahir_ibu,
+                'pendidikan_ibu' => $request->pendidikan_ibu,
+                'pekerjaan_ibu' => $request->pekerjaan_ibu,
+                'email_ibu' => $request->email_ibu,
+                'no_telp_ibu' => $request->no_telp_ibu,
+                'penghasilan_ibu' => $request->penghasilan_ibu,
+                'file_akta_kelahiran' =>  'berkas/' . $aktaKelahiranName ,
+                'file_kk'             =>  'berkas/' . $kkName ,
+                'file_foto'           =>  'berkas/' . $fotoName ,
+                'file_imunisasi'      =>  'berkas/' . $imunisasiName ,
+            ]
+        );
+
+        // Redirect ke route pendaftaran
+        return redirect()->route('validation');
+    }
+
+    public function pendaftaran_admin_edit($id)
+    {
+        $siswa = Siswa::where('id', $id)->first();
+        $users = User::all();
+        return view('pendaftaran.dashboard-admin-edit', compact('siswa','users'));
+    }
+
+    public function daftar_admin_edit(Request $request)
+    {    
+        $destinationPath = public_path('berkas');
+        
+        $aktaKelahiranName = $kkName = $fotoName = $imunisasiName = null;
+
+        if ($request->hasFile('file_akta_kelahiran')) {
+            $aktaKelahiranName = time() . '_akta.' . $request->file('file_akta_kelahiran')->getClientOriginalExtension();
+            $request->file('file_akta_kelahiran')->move($destinationPath, $aktaKelahiranName);
+        }
+
+        if ($request->hasFile('file_kk')) {
+            $kkName = time() . '_kk.' . $request->file('file_kk')->getClientOriginalExtension();
+            $request->file('file_kk')->move($destinationPath, $kkName);
+        }
+
+        if ($request->hasFile('file_foto')) {
+            $fotoName = time() . '_foto.' . $request->file('file_foto')->getClientOriginalExtension();
+            $request->file('file_foto')->move($destinationPath, $fotoName);
+        }
+
+        if ($request->hasFile('file_imunisasi')) {
+            $imunisasiName = time() . '_imunisasi.' . $request->file('file_imunisasi')->getClientOriginalExtension();
+            $request->file('file_imunisasi')->move($destinationPath, $imunisasiName);
+        }
+
+        $berkas = Siswa::where('id', $request->id)->first();
+        $user_id = (int) $request->user;
+        // dd($request->id);
+        Siswa::updateOrCreate(
+            ['id' => $request->id], 
+            [ 
+                'user_id' => $user_id,
                 'nama_lengkap' => $request->nama_lengkap,
                 'nama_panggilan' => $request->nama_panggilan,
                 'jenis_kelamin' => $request->jenis_kelamin,
@@ -327,41 +409,7 @@ class PendaftaranController extends Controller
         );
 
         // Redirect ke route pendaftaran
-        return redirect()->route('orang-tua');
+        return redirect()->route('validation');
     }
 
-
-    public function daftar_ortu_admin(Request $request){
-        Siswa::updateOrCreate(
-            ['user_id' => auth()->id()], 
-            [ 
-                'user_id' => auth()->id(),
-                
-            ]
-        );
-        return redirect()->route('dokumen');
-    }
-
-    public function daftar_berkas_admin(Request $request){
-        // dd("hello");
-        $validated = $request->validate([
-            'file_akta_kelahiran' => 'nullable|mimes:jpg,jpeg,png,pdf|max:2048',
-            'file_kk'             => 'nullable|mimes:jpg,jpeg,png,pdf|max:2048',
-            'file_foto'           => 'nullable|mimes:jpg,jpeg,png|max:2048',
-            'file_imunisasi'      => 'nullable|mimes:jpg,jpeg,png,pdf|max:2048',
-        ]);
-        
-        
-
-    // Update atau buat data siswa
-    Siswa::updateOrCreate(
-        ['user_id' => auth()->id()],
-        [
-            'user_id' => auth()->id(),
-            
-        ]
-    );
-
-        return redirect()->route('informasi');
-    }
 }

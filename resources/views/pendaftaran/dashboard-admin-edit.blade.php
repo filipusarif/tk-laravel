@@ -19,13 +19,14 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Pendaftaran Siswa</h4>
-                    <form class="form-sample" method="POST" action="/daftar-admin"  enctype="multipart/form-data">
+                    <form class="form-sample" method="POST" action="/daftar-admin-edit"  enctype="multipart/form-data">
                       @csrf
                       <p class="card-description"> Informasi Siswa </p>
                       <div class="row">
                       <div class="col-md-6">
                           <div class="form-group row">
                             <label class="col-sm-3 col-form-label"> User </label>
+                            <input type="hidden" name="id" class="form-control" value="{{ old('id', $siswa->id ?? '') }}" />
                             <div class="col-sm-9">
                               <select name="user" class="form-control">
                               @foreach ( $users as $user )

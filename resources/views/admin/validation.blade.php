@@ -17,6 +17,24 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <style>
+      .page-item {
+    display: inline-block;
+    margin-right: 5px;
+}
+.page-link {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.page-link:hover {
+    background-color: #f1f1f1;
+}
+
+    </style>
   </head>
   <body>
     <div class="container-scroller">
@@ -30,6 +48,9 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
+          <a href="{{ route('pendaftaran-admin') }}" type="button" class="btn btn-gradient-success btn-lg btn-block">
+                <i class="mdi mdi-plus"></i> Tambah Pendaftaran
+            </a>
             <table class="table table-striped">
               <thead>
                 <tr>

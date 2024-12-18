@@ -29,6 +29,12 @@
         <x-sidebar></x-sidebar>  
         <!-- partial -->
         <div class="main-panel">
+          <form action="{{ url('/whatsapp') }}" method="POST">
+          {{ csrf_field() }}
+            <button type="submit" class="btn btn-gradient-success btn-lg btn-block">
+              <i class="mdi mdi-plus"></i> Kirim Notifikasi
+            </button>
+          </form>
          <table class="table table-striped">
               <thead>
                 <tr>
