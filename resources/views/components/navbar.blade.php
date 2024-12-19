@@ -12,7 +12,13 @@
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
-                  <img src="/assets/images/photo.jpg" alt="image">
+                  @if ( auth()->user()->role == 'admin')
+                  <img src="/assets/images/admin.jpg" alt="profile">
+                  @elseif ( auth()->user()->role == 'kepala_sekolah')
+                  <img src="/assets/images/kepala.png" alt="profile">
+                  @elseif ( auth()->user()->role == 'orang_tua')
+                  <img src="/assets/images/photo.jpg" alt="profile">
+                  @endif
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">

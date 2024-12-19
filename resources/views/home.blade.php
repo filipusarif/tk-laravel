@@ -33,7 +33,7 @@
 </nav>
 
   <!-- Hero Section -->
-  <section class="bg-blue-100 min-h-screen flex items-center justify-center flex-col  py-16 text-center relative">
+  <!-- <section class="bg-blue-100 min-h-screen flex items-center justify-center flex-col  py-16 text-center relative">
     <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-kindergarten-kindergarten-flatart-icons-outline-flatarticons.png" alt="Kids Icon" class="absolute top-4 right-4 w-16">
     <h2 class="text-4xl font-bold text-orange-600">Pendaftaran Peserta Didik Baru</h2>
     <p class="mt-4 text-lg text-gray-700">TK Annur - Tahun Ajaran 2025/2026</p>
@@ -43,26 +43,31 @@
         Daftar Sekarang
       </a>
     </div>
+  </section> -->
+
+  <section class="w-full h-[70vh] relative object-cover flex items-center justify-center overflow-hidden">
+    <img src="/assets/images/background2.svg" class="w-full absolute left-0 top-0" alt="">
+    <h1 class="font-extrabold z-10 text-white text-[400%]">PENDAFTARAN ONLINE</h1>
   </section>
 
   <!-- Alur Pendaftaran -->
-  <section id="alur" class="py-16 bg-yellow-50 min-h-screen">
-    <div class="container mx-auto">
+  <section id="alur" class="py-16 p-36 bg-yellow-50 min-h-screen">
+    <!-- <div class="container mx-auto">
       <h3 class="text-center text-2xl font-bold text-orange-600 mb-10">Alur Pendaftaran</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Step 1 -->
+        
         <div class="bg-white p-6 rounded-lg shadow text-center">
           <img src="https://img.icons8.com/ios-filled/50/ffa500/account--v1.png" alt="Step 1" class="mx-auto mb-4">
           <h4 class="text-lg font-semibold">Klik Daftar Sekarang & Buat Akun</h4>
           <p class="mt-2 text-sm text-gray-600">Klik tombol "Daftar Sekarang" dan buat akun menggunakan email atau nomor telepon.</p>
         </div>
-        <!-- Step 2 -->
+        
         <div class="bg-white p-6 rounded-lg shadow text-center">
           <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/60/ffa500/external-form-web-development-flatart-icons-outline-flatarticons.png" alt="Step 2" class="mx-auto mb-4">
           <h4 class="text-lg font-semibold">Isi Form Pendaftaran</h4>
           <p class="mt-2 text-sm text-gray-600">Lengkapi data anak dan orang tua pada form pendaftaran yang tersedia.</p>
         </div>
-        <!-- Step 3 -->
+        
         <div class="bg-white p-6 rounded-lg shadow text-center">
           <img src="https://img.icons8.com/external-soft-fill-juicy-fish/60/ffa500/external-confirmation-logistics-soft-fill-soft-fill-juicy-fish.png" alt="Step 3" class="mx-auto mb-4">
           <h4 class="text-lg font-semibold">Konfirmasi Panitia</h4>
@@ -73,40 +78,45 @@
           <h4 class="text-lg font-semibold">Daftar Ulang</h4>
           <p class="mt-2 text-sm text-gray-600">Lakukan pengukuran seragam dan ambil seragam di lokasi sekolah.</p>
         </div>
-        <!-- Step 4 -->
+        
         <div class="bg-white p-6 rounded-lg shadow text-center">
           <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/60/ffa500/external-kindergarten-education-flatart-icons-outline-flatarticons.png" alt="Step 5" class="mx-auto mb-4">
           <h4 class="text-lg font-semibold">Observasi / Pengumuman</h4>
           <p class="mt-2 text-sm text-gray-600">Ikuti sesi observasi anak dan tunggu hasil pengumuman dari pihak sekolah.</p>
         </div>
-        <!-- Step 5 -->
+        
         <div class="bg-white p-6 rounded-lg shadow text-center">
           <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/60/ffa500/external-clothes-kindergarten-flatart-icons-outline-flatarticons.png" alt="Step 6" class="mx-auto mb-4">
           <h4 class="text-lg font-semibold">Pengukuran & Pengambilan Seragam</h4>
           <p class="mt-2 text-sm text-gray-600">Lakukan pengukuran seragam dan ambil seragam di lokasi sekolah.</p>
         </div>
       </div>
+    </div> -->
+    <div class="container mx-auto px-32 pb-32 pt-10 rounded-2xl bg-white">
+      <h1 class="font-bold text-center text-2xl mb-10">PENERIMAAN PESERTA DIDIK BARU</h1>
+      <img src="/assets/images/pendaftaran.svg" alt="" class="rounded-xl" width="100%">
+      <p class="text-center mt-10">Informasi lebih lanjut mengenai pendaftaran dapat menghubungi bu Istini (081326243197) dan bu Syafa (089601370618)</p>
     </div>
   </section>
 
   <!-- Fasilitas -->
-  <section id="fasilitas" class="py-16 bg-green-50 h-screen">
+  <!-- <section id="fasilitas" class="py-16 bg-green-50 h-screen">
     <div class="container mx-auto">
       <h3 class="text-center text-2xl font-bold text-green-600 mb-10">Fasilitas</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Fasilitas 1 -->
+        
         <div class="bg-white p-6 rounded-lg shadow text-center">
           <img src="https://img.icons8.com/external-soft-fill-juicy-fish/60/ffa500/external-library-kindergarten-soft-fill-soft-fill-juicy-fish.png" alt="Fasilitas 1" class="mx-auto mb-4">
           <h4 class="text-lg font-semibold">Perpustakaan</h4>
           <p class="mt-2 text-sm text-gray-600">Menyediakan buku edukasi menarik untuk anak-anak.</p>
         </div>
-        <!-- Fasilitas 2 -->
+        
         <div class="bg-white p-6 rounded-lg shadow text-center">
           <img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/60/ffa500/external-playground-kindergarten-flatart-icons-flat-flatarticons.png" alt="Fasilitas 2" class="mx-auto mb-4">
           <h4 class="text-lg font-semibold">Taman Bermain</h4>
           <p class="mt-2 text-sm text-gray-600">Area bermain luas untuk mengembangkan motorik anak.</p>
         </div>
-        <!-- Fasilitas 3 -->
+        
         <div class="bg-white p-6 rounded-lg shadow text-center">
           <img src="https://img.icons8.com/external-flat-juicy-fish/60/ffa500/external-classroom-education-flat-flat-juicy-fish.png" alt="Fasilitas 3" class="mx-auto mb-4">
           <h4 class="text-lg font-semibold">Ruang Kelas</h4>
@@ -114,10 +124,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Kontak -->
-  <section id="kontak" class="bg-green-100 py-16">
+  <!-- <section id="kontak" class="bg-green-100 py-16">
     <div class="container mx-auto">
       <h3 class="text-center text-2xl font-bold text-green-600 mb-10">Kontak Kami</h3>
       <p class="text-center text-lg">Hubungi kami untuk informasi lebih lanjut:</p>
@@ -126,7 +136,7 @@
         <p class="text-sm text-gray-700">✉️ Email: info@tkannur.sch.id</p>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Footer -->
   <footer class="bg-orange-500 text-white py-6 text-center">
