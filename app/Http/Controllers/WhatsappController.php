@@ -21,7 +21,7 @@
       $client = new Client($twilioSid, $twilioAuthToken);
       try {
           foreach ($sends as $send) {
-            $to = 'whatsapp:'.'+6282252955822';
+            // $to = 'whatsapp:'.'+6288227883706';
             $to = 'whatsapp:'.$send->no_telp_ayah ?? $send->no_telp_ibu ;
             $pesan = "Saat Ini Terdapat Tagihan Pembayaran di TK, buka website TK untuk melihat lebih lengkap ";
             $mes = array(
