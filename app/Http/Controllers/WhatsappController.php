@@ -16,14 +16,12 @@
       $twilioWhatsappNumber = 'whatsapp:'.env('TWILIO_WHATSAPP_NUMBER');
       
       $sends = Siswa::all();
-      //   $to = 'whatsapp:'.$request->phone;
-      //   $message = $request->message;
       $client = new Client($twilioSid, $twilioAuthToken);
       try {
           foreach ($sends as $send) {
             // $to = 'whatsapp:'.'+6288227883706';
             $to = 'whatsapp:'.$send->no_telp_ayah ?? $send->no_telp_ibu ;
-            $pesan = "Saat Ini Terdapat Tagihan Pembayaran di TK, buka website TK untuk melihat lebih lengkap ";
+            $pesan = "Saat Ini Terdapat Tagihan Pembayaran di TK Amanah Bangsa, buka website TK untuk melihat lebih lengkap ";
             $mes = array(
                 "from" => "whatsapp:+14155238886",
                 // "contentSid" => "HXb5b62575e6e4ff6129ad7c8efe1f983e",

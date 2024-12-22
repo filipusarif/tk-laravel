@@ -17,7 +17,7 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
         if (!Auth::check()) {
-            return redirect('/login'); // Redirect ke login jika belum login
+            return redirect('login'); // Redirect ke login jika belum login
         }
 
         $user = Auth::user();
@@ -28,4 +28,6 @@ class RoleMiddleware
 
         return $next($request);
     }
+
+
 }

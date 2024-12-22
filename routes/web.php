@@ -17,11 +17,15 @@ Route::post('/whatsapp', [WhatsappController::class, 'store']);
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/ppdb', function () {
+    return view('ppdb');
+});
+Route::get('/profil', [PrestasiController::class, 'showPrestasi'])->name('show.prestasi');
 
 Route::post('/register', [AuthController::class, 'registerPost']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'loginPost']);
-Route::get('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::post('/daftar', [PendaftaranController::class, 'daftar']);
 Route::post('/daftar-ortu', [PendaftaranController::class, 'daftar_ortu']);

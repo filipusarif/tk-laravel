@@ -1,145 +1,242 @@
 <x-base-user>
-    <x-slot:title>PPDB TK</x-slot:title>
+    <x-slot:title>TK Amanah Bangsa</x-slot:title>
    
-    <nav class="bg-white border-slate-200 dark:bg-white  fixed w-full z-50">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-    </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-500 rounded-lg md:hidden hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:text-slate-400 dark:hover:bg-white dark:focus:ring-slate-300" aria-controls="navbar-default" aria-expanded="false">
-        <span class="sr-only">Buka Menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
-    </button>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-slate-100 rounded-lg bg-slate-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-white md:dark:bg-white  dark:border-slate-100">
-        <li>
-          <a href="/#alur" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-slate-900 md:dark:hover:text-slate-500 dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent">Alur Pendaftaran</a>
-        </li>
-        <li>
-          <a href="/#fasilitas" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-slate-900 md:dark:hover:text-slate-500 dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent">Fasilitas</a>
-        </li>
-        <li>
-          <a href="/#kontak" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-slate-900 md:dark:hover:text-slate-500 dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent">Kontak</a>
-        </li>
-        <li>
-          <a href="/login" class="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-slate-900 md:dark:hover:text-slate-500 dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent">Masuk</a>
-        </li>
-      </ul>
+    <x-navbar-user></x-navbar-user>
+
+
+    <!-- <header class="bg-[#3CB5E8] text-white">
+        <div class="container mx-auto flex items-center justify-between py-4 px-6">
+            <h1 class="text-3xl font-bold">TK Amanah Bangsa</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:underline">Home</a></li>
+                    <li><a href="#" class="hover:underline">Program</a></li>
+                    <li><a href="#" class="hover:underline">Guru</a></li>
+                    <li><a href="#" class="hover:underline">Galeri</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header> -->
+
+    <div class="relative w-full h-screen overflow-hidden">
+        <!-- Carousel Container -->
+        <div class="relative overflow-hidden h-full">
+            <!-- Slides -->
+            <div class="flex transition-transform duration-500 ease-in-out h-full" id="carousel-slides">
+                <div class="w-full flex-shrink-0 h-full">
+                    <img src="https://tkislamrahmatullah.com/wp-content/uploads/2020/01/WhatsApp-Image-2020-03-21-at-06.14.13.jpeg" 
+                        alt="Slide 1" 
+                        class="w-full h-full object-cover">
+                </div>
+                <div class="w-full flex-shrink-0 h-full">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy0nZjiOWYxxlNevPC8pZL8YltYPaZ4lMt2QY-SWwRH1GPrwhthuy8B9Pski7Ja3QXwr4HjKxUgtGme432upDZWKmcmu-zvRzwQO96_Rq-kAjlIDh8q_gaZ2iNp3hMJrPbccX4OcdMRQAmgiXWKHaR_9446unEBiVk9h9zHrqJwxjpFI99liuGUHTjc5zc/s2048/1.jpg" 
+                        alt="Slide 2" 
+                        class="w-full h-full object-cover">
+                </div>
+                <div class="w-full flex-shrink-0 h-full">
+                    <img src="/assets/images/slide2.jpg" 
+                        alt="Slide 3" 
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+        <div class="absolute z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[75%] md:w-[40%] flex flex-col justify-content-center items-center">
+            <p class="mt-4 bold text-3xl md:text-[400%] text-white">TK Amanah Bangsa</p>
+            <p class="mt-2 text-slate-100">Daftarkan anak Anda di TK Amanah Bangsa untuk pengalaman belajar yang menyenangkan dan penuh keceriaan.</p>
+            <div class="mt-6">
+                <a href="/pendaftaran" class="bg-orange-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-orange-600">
+                    Daftar Sekarang
+                </a>
+            </div>
+        </div>
+        <!-- Navigation Buttons -->
+        <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2">
+            &#10094;
+        </button>
+        <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 text-white rounded-full p-2">
+            &#10095;
+        </button>
+
+        <!-- Indicators -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+            <button class="w-3 h-3 bg-gray-500 rounded-full" data-slide="0"></button>
+            <button class="w-3 h-3 bg-gray-500 rounded-full" data-slide="1"></button>
+            <button class="w-3 h-3 bg-gray-500 rounded-full" data-slide="2"></button>
+        </div>
+        <svg class="absolute left-0 bottom-0 z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#FFFAE0" fill-opacity="1" d="M0,160L80,170.7C160,181,320,203,480,208C640,213,800,203,960,208C1120,213,1280,235,1360,245.3L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+        <svg class="absolute left-0 bottom-0 z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,320L80,298.7C160,277,320,235,480,229.3C640,224,800,256,960,256C1120,256,1280,224,1360,208L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
     </div>
-  </div>
-</nav>
 
-  <!-- Hero Section -->
-  <!-- <section class="bg-blue-100 min-h-screen flex items-center justify-center flex-col  py-16 text-center relative">
-    <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-kindergarten-kindergarten-flatart-icons-outline-flatarticons.png" alt="Kids Icon" class="absolute top-4 right-4 w-16">
-    <h2 class="text-4xl font-bold text-orange-600">Pendaftaran Peserta Didik Baru</h2>
-    <p class="mt-4 text-lg text-gray-700">TK Annur - Tahun Ajaran 2025/2026</p>
-    <p class="mt-2 text-gray-600">Daftarkan anak Anda di TK Annur untuk pengalaman belajar yang menyenangkan dan penuh keceriaan.</p>
-    <div class="mt-6">
-      <a href="/login" class="bg-orange-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-orange-600">
-        Daftar Sekarang
-      </a>
-    </div>
-  </section> -->
+    <section class="container  flex flex-col md:flex-row justify-content-center items-start mx-auto py-12">
+        <div class="w-full md:w-1/2 p-12 flex gap-3 flex-col">
+            <h1 class="text-5xl text-[#632A14]">Selamat Datang Di TK Amanah Bangsa!!</h1>
+            <p class="text-md font-medium font-sans">
+                Puji syukur marilah kita panjatkan kehadhirat Allah SWT atas berkat, rahmat dan hidayah-Nya sehingga salah satu program penting dalam proses perkembangan KB-TK Amanah Bangsa untuk memasuki era dunia maya dapat terwujud. Tujuan penting hadirnya KB-TK Amanah Bangsa di dunia maya yaitu dapat memberikan berbagai informasi kepada siswa, orang tua siswa dan masyarakat tentang kinerja sekolah serta memberikan masukan kritik dan saran yang membangun bagi kemajuan sekolah melalui peran serta masyarakat.
+            </p>
+        </div>
+        <div class="w-full md:w-1/2">
+            <img src="/assets/images/about.png" class="basis-1/2" alt="">
+        </div>
+    </section>
 
-  <section class="w-full h-[70vh] relative object-cover flex items-center justify-center overflow-hidden">
-    <img src="/assets/images/background2.svg" class="w-full absolute left-0 top-0" alt="">
-    <h1 class="font-extrabold z-10 text-white text-[400%]">PENDAFTARAN ONLINE</h1>
-  </section>
+    <section class="min-h-screen w-full relative">
+        <svg class="left-0 top-0 z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#FFFAE0" fill-opacity="1" d="M0,224L48,208C96,192,192,160,288,144C384,128,480,128,576,112C672,96,768,64,864,90.7C960,117,1056,203,1152,224C1248,245,1344,203,1392,181.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        <div class="bg-[#FFFAE0]">
+            <div class="max-w-6xl mx-auto py-10 ">
+                <h2 class="text-center text-3xl font-bold text-[#632A14] mb-8">
+                    GALERI KITA
+                </h2>
+                    <div class="swiper h-[50vh]">
+                        <div class="swiper-wrapper">
+                            <!-- Card 1 -->
+                            <div class="swiper-slide">
+                                <div class="bg-white tilt-1 card rounded-lg shadow-lg p-4">
+                                    <img
+                                    src="/assets/images/slide3.jpg"
+                                    alt="Gambar 1"
+                                    class="rounded-lg w-full h-48 object-cover"
+                                    />
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="swiper-slide">
+                                <div class="bg-white tilt-2 card rounded-lg shadow-lg p-4">
+                                    <img
+                        src="/assets/images/slide1.jpg"
+                        alt="Gambar 2"
+                        class="rounded-lg w-full  h-48 object-cover"
+                        />
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="swiper-slide">
+                    <div class="bg-white card tilt-3 rounded-lg tilt-4 shadow-lg p-4">
+                        <img
+                        src="/assets/images/slide2.jpg"
+                        alt="Gambar 3"
+                        class="rounded-lg w-full h-48 object-cover"
+                        />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-white card rounded-lg tilt-3 shadow-lg p-4">
+                        <img
+                        src="/assets/images/slide3.jpg"
+                        alt="Gambar 3"
+                        class="rounded-lg w-full h-48 object-cover"
+                        />
+                    </div>
+                </div>
+                <!-- Tambahkan lebih banyak card sesuai kebutuhan -->
+            </div>
+                    
+                    <!-- Navigasi -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <svg class="left-0 bottom-0 z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#FFFAE0" fill-opacity="1" d="M0,96L48,96C96,96,192,96,288,117.3C384,139,480,181,576,176C672,171,768,117,864,106.7C960,96,1056,128,1152,133.3C1248,139,1344,117,1392,106.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg> -->
+    </section>
 
-  <!-- Alur Pendaftaran -->
-  <section id="alur" class="py-16 p-36 bg-yellow-50 min-h-screen">
-    <!-- <div class="container mx-auto">
-      <h3 class="text-center text-2xl font-bold text-orange-600 mb-10">Alur Pendaftaran</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <div class="bg-white p-6 rounded-lg shadow text-center">
-          <img src="https://img.icons8.com/ios-filled/50/ffa500/account--v1.png" alt="Step 1" class="mx-auto mb-4">
-          <h4 class="text-lg font-semibold">Klik Daftar Sekarang & Buat Akun</h4>
-          <p class="mt-2 text-sm text-gray-600">Klik tombol "Daftar Sekarang" dan buat akun menggunakan email atau nomor telepon.</p>
+    <!-- <section class="container mx-auto py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white card rounded-lg shadow-md p-6 text-center">
+                <img src="/images/pu.png" alt="PUAD" class="w-24 mx-auto">
+                <h3 class="text-xl font-bold mt-4">PUAD</h3>
+                <p class="mt-2">Program Unggulan Anak Didik</p>
+                <a href="#" class="text-[#3CB5E8] hover:underline">Lihat Program</a>
+            </div>
+            <div class="bg-white card rounded-lg shadow-md p-6 text-center">
+                <img src="/images/tk.png" alt="TK" class="w-24 mx-auto">
+                <h3 class="text-xl font-bold mt-4">Taman Kanak-Kanak</h3>
+                <p class="mt-2">Mendidik dengan Kasih</p>
+                <a href="#" class="text-[#3CB5E8] hover:underline">Lihat Program</a>
+            </div>
+            <div class="bg-white card rounded-lg shadow-md p-6 text-center">
+                <img src="/images/ta.png" alt="TPA" class="w-24 mx-auto">
+                <h3 class="text-xl font-bold mt-4">Taman Pendidikan Al-Qur'an</h3>
+                <p class="mt-2">Belajar Al-Qur'an sejak dini</p>
+                <a href="#" class="text-[#3CB5E8] hover:underline">Lihat Program</a>
+            </div>
         </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow text-center">
-          <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/60/ffa500/external-form-web-development-flatart-icons-outline-flatarticons.png" alt="Step 2" class="mx-auto mb-4">
-          <h4 class="text-lg font-semibold">Isi Form Pendaftaran</h4>
-          <p class="mt-2 text-sm text-gray-600">Lengkapi data anak dan orang tua pada form pendaftaran yang tersedia.</p>
-        </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow text-center">
-          <img src="https://img.icons8.com/external-soft-fill-juicy-fish/60/ffa500/external-confirmation-logistics-soft-fill-soft-fill-juicy-fish.png" alt="Step 3" class="mx-auto mb-4">
-          <h4 class="text-lg font-semibold">Konfirmasi Panitia</h4>
-          <p class="mt-2 text-sm text-gray-600">Panitia akan memvalidasi pendaftaran Anda dan menghubungi untuk langkah berikutnya.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow text-center">
-          <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/60/ffa500/external-clothes-kindergarten-flatart-icons-outline-flatarticons.png" alt="Step 4" class="mx-auto mb-4">
-          <h4 class="text-lg font-semibold">Daftar Ulang</h4>
-          <p class="mt-2 text-sm text-gray-600">Lakukan pengukuran seragam dan ambil seragam di lokasi sekolah.</p>
-        </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow text-center">
-          <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/60/ffa500/external-kindergarten-education-flatart-icons-outline-flatarticons.png" alt="Step 5" class="mx-auto mb-4">
-          <h4 class="text-lg font-semibold">Observasi / Pengumuman</h4>
-          <p class="mt-2 text-sm text-gray-600">Ikuti sesi observasi anak dan tunggu hasil pengumuman dari pihak sekolah.</p>
-        </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow text-center">
-          <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/60/ffa500/external-clothes-kindergarten-flatart-icons-outline-flatarticons.png" alt="Step 6" class="mx-auto mb-4">
-          <h4 class="text-lg font-semibold">Pengukuran & Pengambilan Seragam</h4>
-          <p class="mt-2 text-sm text-gray-600">Lakukan pengukuran seragam dan ambil seragam di lokasi sekolah.</p>
-        </div>
-      </div>
-    </div> -->
-    <div class="container mx-auto px-32 pb-32 pt-10 rounded-2xl bg-white">
-      <h1 class="font-bold text-center text-2xl mb-10">PENERIMAAN PESERTA DIDIK BARU</h1>
-      <img src="/assets/images/pendaftaran.svg" alt="" class="rounded-xl" width="100%">
-      <p class="text-center mt-10">Informasi lebih lanjut mengenai pendaftaran dapat menghubungi bu Istini (081326243197) dan bu Syafa (089601370618)</p>
-    </div>
-  </section>
+    </section> -->
 
-  <!-- Fasilitas -->
-  <!-- <section id="fasilitas" class="py-16 bg-green-50 h-screen">
-    <div class="container mx-auto">
-      <h3 class="text-center text-2xl font-bold text-green-600 mb-10">Fasilitas</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <div class="bg-white p-6 rounded-lg shadow text-center">
-          <img src="https://img.icons8.com/external-soft-fill-juicy-fish/60/ffa500/external-library-kindergarten-soft-fill-soft-fill-juicy-fish.png" alt="Fasilitas 1" class="mx-auto mb-4">
-          <h4 class="text-lg font-semibold">Perpustakaan</h4>
-          <p class="mt-2 text-sm text-gray-600">Menyediakan buku edukasi menarik untuk anak-anak.</p>
+    <!-- <section class="bg-[#FFFAE0] py-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-[#FF8C00]">Galeri Kita</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+                <img src="/images/gallery1.jpg" alt="Gallery 1" class="rounded-lg w-full h-48 object-cover">
+                <img src="/images/gallery2.jpg" alt="Gallery 2" class="rounded-lg w-full h-48 object-cover">
+                <img src="/images/gallery3.jpg" alt="Gallery 3" class="rounded-lg w-full h-48 object-cover">
+                <img src="/images/gallery4.jpg" alt="Gallery 4" class="rounded-lg w-full h-48 object-cover">
+            </div>
         </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow text-center">
-          <img src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/60/ffa500/external-playground-kindergarten-flatart-icons-flat-flatarticons.png" alt="Fasilitas 2" class="mx-auto mb-4">
-          <h4 class="text-lg font-semibold">Taman Bermain</h4>
-          <p class="mt-2 text-sm text-gray-600">Area bermain luas untuk mengembangkan motorik anak.</p>
+    </section> -->
+    <x-footer-user></x-footer-user>
+    <!-- <footer class="bg-[#3CB5E8] text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 TK Amanah Bangsa - Semua Hak Dilindungi.</p>
         </div>
-        
-        <div class="bg-white p-6 rounded-lg shadow text-center">
-          <img src="https://img.icons8.com/external-flat-juicy-fish/60/ffa500/external-classroom-education-flat-flat-juicy-fish.png" alt="Fasilitas 3" class="mx-auto mb-4">
-          <h4 class="text-lg font-semibold">Ruang Kelas</h4>
-          <p class="mt-2 text-sm text-gray-600">Ruang kelas nyaman dengan fasilitas lengkap.</p>
-        </div>
-      </div>
-    </div>
-  </section> -->
+    </footer> -->
 
-  <!-- Kontak -->
-  <!-- <section id="kontak" class="bg-green-100 py-16">
-    <div class="container mx-auto">
-      <h3 class="text-center text-2xl font-bold text-green-600 mb-10">Kontak Kami</h3>
-      <p class="text-center text-lg">Hubungi kami untuk informasi lebih lanjut:</p>
-      <div class="mt-6 text-center">
-        <p class="text-sm text-gray-700">📞 Telp: 024-xxxxxxx</p>
-        <p class="text-sm text-gray-700">✉️ Email: info@tkannur.sch.id</p>
-      </div>
-    </div>
-  </section> -->
+    <script>
+    const slides = document.getElementById('carousel-slides');
+    const slideButtons = document.querySelectorAll('[data-slide]');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    let currentIndex = 0;
 
-  <!-- Footer -->
-  <footer class="bg-orange-500 text-white py-6 text-center">
-    <p>&copy; 2024 TK Annur. Semua Hak Dilindungi.</p>
-  </footer>
+    const updateCarousel = (index) => {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+        slideButtons.forEach((btn, idx) => {
+            btn.classList.toggle('bg-gray-900', idx === index);
+        });
+    };
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slideButtons.length) % slideButtons.length;
+        updateCarousel(currentIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slideButtons.length;
+        updateCarousel(currentIndex);
+    });
+
+    slideButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel(currentIndex);
+        });
+    });
+
+    // Auto-play carousel
+    setInterval(() => {
+        nextButton.click();
+    }, 5000);
+</script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 3,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        640: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    });
+  </script>
+
 </x-base-user>

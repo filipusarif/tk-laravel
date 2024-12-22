@@ -8,6 +8,11 @@ use App\Models\Prestasi;
 
 class PrestasiController extends Controller
 {
+    public function showPrestasi(){
+        $prestasis = Prestasi::all();
+        return view('profil', compact('prestasis'));
+    }
+
     public function prestasi(){
         $prestasis = Prestasi::all();
         return view('admin.prestasi', compact('prestasis'));
